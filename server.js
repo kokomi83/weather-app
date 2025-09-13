@@ -5,7 +5,7 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-
+// 🔑 API Key (thay bằng key của bạn)
 const API_KEY = "da4eb804834ad33d926e05e6abdf7d31";
 
 // ⚡ Cho phép phục vụ file tĩnh (index.html, style.css, index.js)
@@ -27,9 +27,11 @@ app.get("/weather", async (req, res) => {
       humidity: data.main.humidity + "%",
       wind: data.wind.speed + " m/s",
       icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+      lat: data.coord.lat,
+      lon: data.coord.lon,
     });
   } catch (error) {
-    console.error(error.message);
+    console.error("❌ Lỗi API:", error.response?.data || error.message);
     res.status(500).json({ error: "Không lấy được dữ liệu thời tiết" });
   }
 });
@@ -43,4 +45,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);
 });
-
