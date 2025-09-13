@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Ứng dụng Thời tiết</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Ứng dụng Thời tiết</h1>
+    <input type="text" id="cityInput" placeholder="Nhập tên thành phố...">
+    <button onclick="getWeather()">Xem thời tiết</button>
+    
+    <div id="weather"></div>
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
