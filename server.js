@@ -1,8 +1,10 @@
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 const PORT = 3000;
 
 // 🔑 API Key (thay bằng key của bạn)
